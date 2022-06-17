@@ -1,3 +1,24 @@
+#Function Declarations
+"""
+Function to get and validate float values
+Input:
+Output: a validated float value
+"""
+def get_float_value(prompt):
+    run_again = True
+    while (run_again):
+        try:
+            user_input = float(input(prompt))
+            if(user_input <= 0):
+                print("ERROR: Value must be greater than 0.\n")
+                continue
+        except:
+            print("ERROR: Input must be a number.\n")
+        else:
+            run_again = False
+    
+    return user_input
+
 #INPUT
 #Declare variables for known values
 hourly_labor_cost = 62.25
@@ -6,22 +27,24 @@ hours_labor_per_unit = 6
 #prompt the user to enter the amount of wall to paint
 #Convert to float
 #if error in input ask user to re-enter input. Input must be greater than 0
+wall_area = get_float_value("What is the area of wall in sq/ft: ")
+
+#prompt user to enter cost of paint per gallon
+#Convert to float
 run_again = True
 while (run_again):
     try:
-        wall_area = float(input("What is the area of wall in sq/ft: "))
-        if(wall_area <= 0):
+        paint_price = float(input("What is the price of paint per gallon: "))
+        if(paint_price <= 0):
             continue
     except:
         print("ERROR: Wall area must be a number.\n")
     else:
         run_again = False
-#prompt user to enter cost of paint per gallon
-#Convert to float
-paint_price = float(input("What is the price of paint per gallon: "))
+
 
 #PROCESS
-#Calculate to hours of laborjhfdjhf
+#Calculate to hours of labor
 #Calculate the cost of labor
 #Calculate the amount of paint
 #Calculate the cost of the paint
